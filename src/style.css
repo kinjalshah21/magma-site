@@ -1,0 +1,141 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: "Jost", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.main {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-1 {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  /* background-color: burlywood; */
+}
+
+.page-1 > video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.nav {
+  position: absolute;
+  height: 13vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2vw 4vw;
+}
+
+.nav > img {
+  margin-top: 5px;
+  height: 8vh;
+  width: 10vh;
+}
+
+.right-side-nav-content {
+  display: flex;
+  gap: 1vw;
+}
+
+.right-side-nav-content button {
+  padding: 6px 18px;
+  border-radius: 25px;
+  border: 0.1vw solid #8391b7;
+  background-color: transparent;
+  color: white;
+  font-size: 1vw;
+  font-family: "Jost", sans-serif;
+}
+
+.page-1-content {
+  font-family: "Jost", sans-serif;
+  position: absolute;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  width: 65vw;
+  height: 60vh;
+  padding: 50px;
+  bottom: 7%;
+  left: 5%;
+}
+
+.page-1-content > h1 {
+  font-size: 6.5vw;
+  font-weight: 300;
+  margin-bottom: 2.5vw;
+}
+.subtitle-button {
+  display: flex;
+  width: 100%;
+  height: 50%;
+  align-items: center;
+}
+.subtitle-button > h4 {
+  font-size: 1.3vw;
+  font-weight: 300;
+  width: 45%;
+}
+.subtitle-button > button {
+  color: #0940dd;
+  background-color: white;
+  border: none;
+  font-family: "Jost", sans-serif;
+  font-size: 1vw;
+  border-radius: 30px;
+  padding: 8px 35px;
+  margin-left: 30px;
+}
+
+.page-2 {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: #0a3cce;
+}
+
+.page-2 h4,
+h1 {
+  color: white;
+  font-weight: 300;
+}
+
+.page-2 h4 {
+  font-size: 1.2vw;
+  padding: 10vw 10vw 0 10vw;
+}
+
+.page-2 h1 {
+  font-size: 4.2vw;
+  padding: 2vw 10vw 10vw 10vw;
+  color: #dadada69;
+}
+
+.page-3 {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: #0a3cce;
+}
+
+.page-3 > canvas {
+  max-width: 100%;
+  max-height: 100vh;
+  position: relative;
+}
+
+

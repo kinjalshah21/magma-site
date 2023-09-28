@@ -617,3 +617,26 @@ document
   });
   }
   canvas3()
+
+  gsap.to(".page-7-circle",{
+    scrollTrigger:{
+      trigger:".page-7-circle",
+      scroller:".main",
+      start:"top center",
+      end:"bottom top",
+      scrub: 0.5,
+    },
+    scale:1.5,
+  })
+
+  gsap.to(".page-7-inner-circle",{
+    scrollTrigger:{
+      trigger:".page-7-inner-circle",
+      scroller:".main",
+      start:"top center",
+      end:"bottom top",
+      scrub: 0.5,
+    },
+    backgroundColor:"#093ccd",
+    })
+

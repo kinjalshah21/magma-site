@@ -145,6 +145,7 @@ h1 {
   height: 100vh;
   position: relative;
   background-color: #1036c6;
+  background-color: transparent;
   display: flex;
   align-items: start;
   flex-direction: column;
@@ -164,7 +165,7 @@ h1 {
   color: white;
 }
 .page-4 >h1 , .page-6>h1{
-  font-size: 4.08vw;
+  font-size: 4.04vw;
 }
 
 .page-5 , .page-7{

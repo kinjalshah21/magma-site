@@ -77,7 +77,7 @@ function canvas() {
 
   function files(index) {
     var data = ` 
-  assets/frames/frames00007.png
+  assets/bridges/frames00007.png
   assets/frames/frames00010.png
   assets/frames/frames00013.png
   assets/frames/frames00016.png
@@ -209,3 +209,189 @@ function canvas() {
   });
 }
 canvas();
+
+var clutter = "";
+
+document
+  .querySelector(".page-4>h1")
+  .textContent.split(" ")
+  .forEach(function (dets) {
+    clutter += `<span> ${dets} </span>`;
+
+    document.querySelector(".page-4>h1").innerHTML = clutter;
+  });
+
+  gsap.to(".page-4>h1>span", {
+    color: "white",
+    duration:1,
+    scrollTrigger: {
+      scroller: ".main",
+      trigger: ".page-4>h1>span",
+      start: "top bottom",
+      end: "bottom 40%",
+      scrub: 0.5,
+    },
+    stagger: 0.2,
+  });
+
+  function canvas2() {
+    const canvas = document.querySelector(".page-5>canvas");
+    const context = canvas.getContext("2d");
+  
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  
+    window.addEventListener("resize", function () {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      render();
+    });
+  
+    function files(index) {
+      var data = ` 
+    assets/bridges/bridges00004.png
+    assets/bridges/bridges00007.png
+    assets/bridges/bridges00010.png
+    assets/bridges/bridges00013.png
+    assets/bridges/bridges00016.png
+    assets/bridges/bridges00019.png
+    assets/bridges/bridges00022.png
+    assets/bridges/bridges00025.png
+    assets/bridges/bridges00028.png
+    assets/bridges/bridges00031.png
+    assets/bridges/bridges00034.png
+    assets/bridges/bridges00037.png
+    assets/bridges/bridges00040.png
+    assets/bridges/bridges00043.png
+    assets/bridges/bridges00046.png
+    assets/bridges/bridges00049.png
+    assets/bridges/bridges00052.png
+    assets/bridges/bridges00055.png
+    assets/bridges/bridges00058.png
+    assets/bridges/bridges00061.png
+    assets/bridges/bridges00064.png
+    assets/bridges/bridges00067.png
+    assets/bridges/bridges00070.png
+    assets/bridges/bridges00073.png
+    assets/bridges/bridges00076.png
+    assets/bridges/bridges00079.png
+    assets/bridges/bridges00082.png
+    assets/bridges/bridges00085.png
+    assets/bridges/bridges00088.png
+    assets/bridges/bridges00091.png
+    assets/bridges/bridges00094.png
+    assets/bridges/bridges00097.png
+    assets/bridges/bridges00100.png
+    assets/bridges/bridges00103.png
+    assets/bridges/bridges00106.png
+    assets/bridges/bridges00109.png
+    assets/bridges/bridges00112.png
+    assets/bridges/bridges00115.png
+    assets/bridges/bridges00118.png
+    assets/bridges/bridges00121.png
+    assets/bridges/bridges00124.png
+    assets/bridges/bridges00127.png
+    assets/bridges/bridges00130.png
+    assets/bridges/bridges00133.png
+    assets/bridges/bridges00136.png
+    assets/bridges/bridges00139.png
+    assets/bridges/bridges00142.png
+    assets/bridges/bridges00145.png
+    assets/bridges/bridges00148.png
+    assets/bridges/bridges00151.png
+    assets/bridges/bridges00154.png
+    assets/bridges/bridges00157.png
+    assets/bridges/bridges00160.png
+    assets/bridges/bridges00163.png
+   `;
+      return data.split("\n")[index];
+    }
+  
+    const frameCount = 55;
+  
+    const images = [];
+    const imageSeq = {
+      frame: 1,
+    };
+  
+    for (let i = 0; i < frameCount; i++) {
+      const img = new Image();
+      img.src = files(i);
+      images.push(img);
+    }
+  
+    gsap.to(imageSeq, {
+      frame: frameCount - 1,
+      duration:0.5,
+      snap: "frame",
+      ease: `none`,
+      scrollTrigger: {
+        scrub: 1,
+        trigger: `.page-5`,
+        start: `top top`,
+        end: `250% top`,
+        scroller: `.main`,
+      },
+      onUpdate: render,
+    });
+  
+    images[1].onload = render;
+  
+    function render() {
+      scaleImage(images[imageSeq.frame], context);
+    }
+  
+    function scaleImage(img, ctx) {
+      var canvas = ctx.canvas;
+      var hRatio = canvas.width / img.width;
+      var vRatio = canvas.height / img.height;
+      var ratio = Math.max(hRatio, vRatio);
+      var centerShift_x = (canvas.width - img.width * ratio) / 2;
+      var centerShift_y = (canvas.height - img.height * ratio) / 2;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(
+        img,
+        0,
+        0,
+        img.width,
+        img.height,
+        centerShift_x,
+        centerShift_y,
+        img.width * ratio,
+        img.height * ratio
+      );
+    }
+    ScrollTrigger.create({
+      trigger: ".page-5",
+      pin: true,
+      scroller: `.main`,
+      start: `top top`,
+      end: `250% top`,
+    });
+  }
+  canvas2();
+
+  var clutter3 = "";
+
+document
+  .querySelector(".page-6>h1")
+  .textContent.split(" ")
+  .forEach(function (dets) {
+    clutter3 += `<span> ${dets} </span>`;
+
+    document.querySelector(".page-6>h1").innerHTML = clutter3;
+  });
+
+
+  gsap.to(".page-6>h1>span", {
+    color: "white",
+    duration:0.8,
+    scrollTrigger: {
+      scroller: ".main",
+      trigger: ".page-6>h1>span",
+      start: "top bottom",
+      end: "bottom 40%",
+      scrub: 0.5,
+    },
+    stagger: 0.2,
+  });

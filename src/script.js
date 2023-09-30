@@ -221,34 +221,34 @@ document
     document.querySelector(".page-4>h1").innerHTML = clutter;
   });
 
-  gsap.to(".page-4>h1>span", {
-    color: "white",
-    duration:1,
-    scrollTrigger: {
-      scroller: ".main",
-      trigger: ".page-4>h1>span",
-      start: "top bottom",
-      end: "bottom 40%",
-      scrub: 0.5,
-    },
-    stagger: 0.2,
-  });
+gsap.to(".page-4>h1>span", {
+  color: "white",
+  duration: 2,
+  scrollTrigger: {
+    scroller: ".main",
+    trigger: ".page-4>h1>span",
+    start: "top bottom",
+    end: "bottom 40%",
+    scrub: 0.5,
+  },
+  stagger: 0.5,
+});
 
-  function canvas2() {
-    const canvas = document.querySelector(".page-5>canvas");
-    const context = canvas.getContext("2d");
-  
+function canvas2() {
+  const canvas = document.querySelector(".page-5>canvas");
+  const context = canvas.getContext("2d");
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  window.addEventListener("resize", function () {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-  
-    window.addEventListener("resize", function () {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      render();
-    });
-  
-    function files(index) {
-      var data = ` 
+    render();
+  });
+
+  function files(index) {
+    var data = ` 
     assets/bridges/bridges00004.png
     assets/bridges/bridges00007.png
     assets/bridges/bridges00010.png
@@ -304,74 +304,74 @@ document
     assets/bridges/bridges00160.png
     assets/bridges/bridges00163.png
    `;
-      return data.split("\n")[index];
-    }
-  
-    const frameCount = 55;
-  
-    const images = [];
-    const imageSeq = {
-      frame: 1,
-    };
-  
-    for (let i = 0; i < frameCount; i++) {
-      const img = new Image();
-      img.src = files(i);
-      images.push(img);
-    }
-  
-    gsap.to(imageSeq, {
-      frame: frameCount - 1,
-      duration:0.5,
-      snap: "frame",
-      ease: `none`,
-      scrollTrigger: {
-        scrub: 1,
-        trigger: `.page-5`,
-        start: `top top`,
-        end: `250% top`,
-        scroller: `.main`,
-      },
-      onUpdate: render,
-    });
-  
-    images[1].onload = render;
-  
-    function render() {
-      scaleImage(images[imageSeq.frame], context);
-    }
-  
-    function scaleImage(img, ctx) {
-      var canvas = ctx.canvas;
-      var hRatio = canvas.width / img.width;
-      var vRatio = canvas.height / img.height;
-      var ratio = Math.max(hRatio, vRatio);
-      var centerShift_x = (canvas.width - img.width * ratio) / 2;
-      var centerShift_y = (canvas.height - img.height * ratio) / 2;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(
-        img,
-        0,
-        0,
-        img.width,
-        img.height,
-        centerShift_x,
-        centerShift_y,
-        img.width * ratio,
-        img.height * ratio
-      );
-    }
-    ScrollTrigger.create({
-      trigger: ".page-5",
-      pin: true,
-      scroller: `.main`,
+    return data.split("\n")[index];
+  }
+
+  const frameCount = 55;
+
+  const images = [];
+  const imageSeq = {
+    frame: 1,
+  };
+
+  for (let i = 0; i < frameCount; i++) {
+    const img = new Image();
+    img.src = files(i);
+    images.push(img);
+  }
+
+  gsap.to(imageSeq, {
+    frame: frameCount - 1,
+    duration: 0.5,
+    snap: "frame",
+    ease: `none`,
+    scrollTrigger: {
+      scrub: 1,
+      trigger: `.page-5`,
       start: `top top`,
       end: `250% top`,
-    });
-  }
-  canvas2();
+      scroller: `.main`,
+    },
+    onUpdate: render,
+  });
 
-  var clutter3 = "";
+  images[1].onload = render;
+
+  function render() {
+    scaleImage(images[imageSeq.frame], context);
+  }
+
+  function scaleImage(img, ctx) {
+    var canvas = ctx.canvas;
+    var hRatio = canvas.width / img.width;
+    var vRatio = canvas.height / img.height;
+    var ratio = Math.max(hRatio, vRatio);
+    var centerShift_x = (canvas.width - img.width * ratio) / 2;
+    var centerShift_y = (canvas.height - img.height * ratio) / 2;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(
+      img,
+      0,
+      0,
+      img.width,
+      img.height,
+      centerShift_x,
+      centerShift_y,
+      img.width * ratio,
+      img.height * ratio
+    );
+  }
+  ScrollTrigger.create({
+    trigger: ".page-5",
+    pin: true,
+    scroller: `.main`,
+    start: `top top`,
+    end: `250% top`,
+  });
+}
+canvas2();
+
+var clutter3 = "";
 
 document
   .querySelector(".page-6>h1")
@@ -382,36 +382,34 @@ document
     document.querySelector(".page-6>h1").innerHTML = clutter3;
   });
 
+gsap.to(".page-6>h1>span", {
+  color: "white",
+  duration: 0.8,
+  scrollTrigger: {
+    scroller: ".main",
+    trigger: ".page-6>h1>span",
+    start: "top bottom",
+    end: "bottom 40%",
+    scrub: 0.5,
+  },
+  stagger: 0.2,
+});
 
-  gsap.to(".page-6>h1>span", {
-    color: "white",
-    duration:0.8,
-    scrollTrigger: {
-      scroller: ".main",
-      trigger: ".page-6>h1>span",
-      start: "top bottom",
-      end: "bottom 40%",
-      scrub: 0.5,
-    },
-    stagger: 0.2,
-  });
-
-  function canvas3(){
-    const canvas = document.querySelector(".page-7>canvas");
+function canvas3() {
+  const canvas = document.querySelector(".page-7>canvas");
   const context = canvas.getContext("2d");
-  
+
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  
-  
+
   window.addEventListener("resize", function () {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  render();
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    render();
   });
-  
+
   function files(index) {
-  var data = `
+    var data = `
   
   https://thisismagma.com/assets/home/lore/seq/1.webp?2
   https://thisismagma.com/assets/home/lore/seq/2.webp?2
@@ -551,92 +549,113 @@ document
   https://thisismagma.com/assets/home/lore/seq/136.webp?2
   
   `;
-  return data.split("\n")[index];
+    return data.split("\n")[index];
   }
-  
+
   const frameCount = 136;
-  
+
   const images = [];
   const imageSeq = {
-  frame: 1,
+    frame: 1,
   };
-  
+
   for (let i = 0; i < frameCount; i++) {
-  const img = new Image();
-  img.src = files(i);
-  images.push(img);
+    const img = new Image();
+    img.src = files(i);
+    images.push(img);
   }
-  
+
   gsap.to(imageSeq, {
-  frame: frameCount - 1,
-  snap: "frame",
-  ease: `none`,
-  scrollTrigger: {
-    scrub: .5,
-    trigger: `.page-7`,
-    start: `top top`,
-    end: `250% top`,
-    scroller: `.main`,
-  },
-  onUpdate: render,
+    frame: frameCount - 1,
+    snap: "frame",
+    ease: `none`,
+    scrollTrigger: {
+      scrub: 0.5,
+      trigger: `.page-7`,
+      start: `top top`,
+      end: `250% top`,
+      scroller: `.main`,
+    },
+    onUpdate: render,
   });
-  
+
   images[1].onload = render;
-  
+
   function render() {
-  scaleImage(images[imageSeq.frame], context);
+    scaleImage(images[imageSeq.frame], context);
   }
-  
+
   function scaleImage(img, ctx) {
-  var canvas = ctx.canvas;
-  var hRatio = canvas.width / img.width;
-  var vRatio = canvas.height / img.height;
-  var ratio = Math.max(hRatio, vRatio);
-  var centerShift_x = (canvas.width - img.width * ratio) / 2;
-  var centerShift_y = (canvas.height - img.height * ratio) / 2;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.drawImage(
-    img,
-    0,
-    0,
-    img.width,
-    img.height,
-    centerShift_x,
-    centerShift_y,
-    img.width * ratio,
-    img.height * ratio
-  );
+    var canvas = ctx.canvas;
+    var hRatio = canvas.width / img.width;
+    var vRatio = canvas.height / img.height;
+    var ratio = Math.max(hRatio, vRatio);
+    var centerShift_x = (canvas.width - img.width * ratio) / 2;
+    var centerShift_y = (canvas.height - img.height * ratio) / 2;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(
+      img,
+      0,
+      0,
+      img.width,
+      img.height,
+      centerShift_x,
+      centerShift_y,
+      img.width * ratio,
+      img.height * ratio
+    );
   }
   ScrollTrigger.create({
-  
-  trigger: ".page-7",
-  pin: true,
-  scroller: `.main`,
-  start: `top top`,
-  end: `250% top`,
+    trigger: ".page-7",
+    pin: true,
+    scroller: `.main`,
+    start: `top top`,
+    end: `250% top`,
   });
-  }
-  canvas3()
+}
+canvas3();
 
-  gsap.to(".page-7-circle",{
-    scrollTrigger:{
-      trigger:".page-7-circle",
-      scroller:".main",
-      start:"top center",
-      end:"bottom top",
-      scrub: 0.5,
-    },
-    scale:1.5,
-  })
+gsap.to(".page-7-circle", {
+  scrollTrigger: {
+    trigger: ".page-7-circle",
+    scroller: ".main",
+    start: "top center",
+    end: "bottom top",
+    scrub: 0.5,
+  },
+  scale: 1.5,
+});
 
-  gsap.to(".page-7-inner-circle",{
-    scrollTrigger:{
-      trigger:".page-7-inner-circle",
-      scroller:".main",
-      start:"top center",
-      end:"bottom top",
-      scrub: 0.5,
-    },
-    backgroundColor:"#093ccd",
-    })
+gsap.to(".page-7-inner-circle", {
+  scrollTrigger: {
+    trigger: ".page-7-inner-circle",
+    scroller: ".main",
+    start: "top center",
+    end: "bottom top",
+    scrub: 0.5,
+  },
+  backgroundColor: "#093ccd",
+});
 
+gsap.to(".page-7-circle", {
+  scrollTrigger: {
+    trigger: ".page-7-circle",
+    scroller: ".main",
+    start: "top center",
+    end: "bottom top",
+    scrub: 0.5,
+  },
+  scale: 1.5,
+});
+
+gsap.to(".page-7-inner-circle>h1", {
+  duration: 30,
+  scrollTrigger: {
+    trigger: ".page-7-inner-circle>h1",
+    scroller: ".main",
+    start: "top center",
+    end: "bottom top",
+    scrub: 5,
+  },
+  opacity: 1,
+});
